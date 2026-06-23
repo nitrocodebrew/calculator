@@ -8,11 +8,13 @@
     padding: 0;
     border: none;
     outline: none;
+    box-sizing: border-box;
 }
 
 *::before, *::after {
     box-sizing: border-box;
 }
+
 /**
  * Calculator body container
  * -------------------------
