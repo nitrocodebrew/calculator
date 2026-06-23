@@ -1,8 +1,23 @@
 /**
+ * Universal reset
+ * ---------------
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+*::before, *::after {
+    box-sizing: border-box;
+}
+/**
  * Calculator body container
  * -------------------------
  */
- 
+
 main.calculator-container {
     display: flex;
     flex-direction: column;
