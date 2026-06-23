@@ -1,0 +1,14 @@
+/**
+ * Calculator body container
+ * -------------------------
+ */
+ 
+main.calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 600px;
+    min-height: 100vh;
+}
