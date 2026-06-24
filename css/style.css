@@ -15,17 +15,38 @@
     box-sizing: border-box;
 }
 
+/** Main layout container */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
 /**
  * Calculator body container
  * -------------------------
  */
 
-main.calculator-container {
+.calculator-container {
+    width: 500px;
+}
+
+.calculator-display-container > output {
+    display: block;
+}
+
+.calculator-keypad-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    width: 600px;
-    min-height: 100vh;
+}
+
+.calculator-keypad-btn {
+    width: 125px;
+    height: 125px;
+    cursor: pointer;
 }
