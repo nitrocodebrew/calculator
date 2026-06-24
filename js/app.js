@@ -44,6 +44,21 @@ const doAppendNumber = n => {
     calculatorInput.textContent = equation;
 };
 
+const doAppendOperator = operator => {
+    // No equation set
+    if(!equation.trim()) 
+        return;
+
+    const tokens = equation.trim().split(' ');
+    const lastIndex = tokens[tokens.length - 1];
+
+    if(OPERATORS.includes(lastIndex))
+        return;
+
+    equation += ` ${operator} `;
+    calculatorInput.textContent = equation;
+};
+
 const doRenderKeypad = () => {
     const keypad = {
         backspace: {
