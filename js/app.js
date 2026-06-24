@@ -59,6 +59,24 @@ const doAppendOperator = operator => {
     calculatorInput.textContent = equation;
 };
 
+const doValidateEquation = () => {
+    // Remove excess spaces
+    const expression = equation.trim().replace(/\s+/g, ' ');
+    const tokens = expression.split(' ');
+
+    // Remove trailing operators
+    if(OPERATORS.includes(tokens[tokens.length - 1]))
+        tokens.pop();
+
+    for(let i = 1; i < tokens.length; i++) {
+        if(OPERATORS.includes(tokens[i]) && OPERATORS.includes(tokens[i - 1]))
+            return null;
+    }
+    return tokens.join(' ');
+};
+
+
+
 const doToggleSign = () => {
     const tokens = equation.trim().split(' ');
     const index = tokens.length - 1;
