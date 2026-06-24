@@ -27,6 +27,23 @@ const doClearScreen = () => {
     calculatorResult.textContent = '';
 };
 
+const doAppendNumber = n => {
+    // Parse floats
+    if(n === '.') {
+        const tokens = equation.trim().split(' ');
+        const lastIndex = tokens[tokens.length - 1];
+
+        if(!lastIndex || OPERATORS.includes(lastIndex))
+            equation += '0';
+
+        if(lastIndex?.includes('.'))
+            return;
+    }
+
+    equation += n;
+    calculatorInput.textContent = equation;
+};
+
 const doRenderKeypad = () => {
     const keypad = {
         backspace: {
@@ -161,5 +178,3 @@ const doRenderKeypad = () => {
         calculatorKeypad.appendChild(calculatorButton);
     }
 };
-
-doRenderKeypad();
