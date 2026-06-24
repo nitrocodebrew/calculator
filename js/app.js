@@ -61,25 +61,16 @@ const doAppendOperator = operator => {
 
 const doToggleSign = () => {
     const tokens = equation.trim().split(' ');
-    let lastIndex = tokens[tokens.length - 1];
+    const index = tokens.length - 1;
+    const lastToken = tokens[index];
 
-    if(!lastIndex)
+    if (!lastToken || OPERATORS.includes(lastToken))
         return;
 
-    if(lastIndex === '-') {
-        tokens.pop();
-        equation = tokens.join(' ');
-        calculatorInput.textContent = equation;
-        return;
-    }
-
-    if(OPERATORS.includes(lastIndex))
-        return;
-
-    if(lastIndex.startsWith('-'))
-        tokens[lastIndex] = lastIndex.slice(1);
+    if (lastToken.startsWith('-'))
+        tokens[index] = lastToken.slice(1);
     else
-        tokens[lastIndex] = '-' + lastIndex;
+        tokens[index] = '-' + lastToken;
 
     equation = tokens.join(' ');
     calculatorInput.textContent = equation;
