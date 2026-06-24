@@ -20,3 +20,10 @@ const doRemainder = (a, b) => a % b;
 const doBackspace = () => {
     equation = calculatorInput.textContent = calculatorInput.textContent.slice(0, -1);
 };
+
+const doClearScreen = () => {
+    equation = '';
+    calculatorInput.textContent = '';
+    calculatorResult.textContent = '';
+};
+
