@@ -75,97 +75,97 @@ const doRenderKeypad = () => {
         },
         remainder: {
             value: '%',
-            action: () => {},
+            action: () => doAppendOperator('%'),
             order: 3,
             type: 'operator',
         },
         divide: {
             value: '÷',
-            action: () => {},
+            action: () => doAppendOperator('/'),
             order: 4,
             type: 'operator',
         },
         7: {
             value: 7,
-            action: () => {},
+            action: () => doAppendNumber(7),
             order: 5,
             type: 'number',
         },
         8: {
             value: 8,
-            action: () => {},
+            action: () => doAppendNumber(8),
             order: 6,
             type: 'number',
         },
         9: {
             value: 9,
-            action: () => {},
+            action: () => doAppendNumber(9),
             order: 7,
             type: 'number',
         },
         multiply: {
             value: '×',
-            action: () => {},
+            action: () => doAppendOperator('*'),
             order: 8,
             type: 'operator',
         },
         4: {
             value: 4,
-            action: () => {},
+            action: () => doAppendNumber(4),
             order: 9,
             type: 'number',
         },
         5: {
             value: 5,
-            action: () => {},
+            action: () => doAppendNumber(5),
             order: 10,
             type: 'number',
         },
         6: {
             value: 6,
-            action: () => {},
+            action: () => doAppendNumber(6),
             order: 11,
             type: 'number',
         },
         subtract: {
             value: '-',
-            action: () => {},
+            action: () => doAppendOperator('-'),
             order: 12,
             type: 'operator',
         },
         1: {
             value: 1,
-            action: () => {},
+            action: () => doAppendNumber(1),
             order: 13,
             type: 'number',
         },
         2: {
             value: 2,
-            action: () => {},
+            action: () => doAppendNumber(2),
             order: 14,
             type: 'number',
         },
         3: {
             value: 3,
-            action: () => {},
+            action: () => doAppendNumber(3),
             order: 15,
             type: 'number',
         },
         add: {
             value: '+',
-            action: () => {},
+            action: () => doAppendOperator('+'),
             order: 16,
             type: 'operator',
         },
         0: {
             value: 0,
-            action: () => {},
+            action: () => doAppendNumber(0),
             order: 17,
             type: 'number',
         },
         decimal: {
             value: '.',
-            action: () => {},
+            action: () => doAppendNumber('.'),
             order: 18,
             type: 'number',
         },
@@ -187,9 +187,12 @@ const doRenderKeypad = () => {
         const calculatorButton = document.createElement('button');
         calculatorButton.setAttribute('type', 'button');
         calculatorButton.classList.add(`button-${keypad[key].type}`);
+        calculatorButton.classList.add('calculator-keypad-btn')
         calculatorButton.textContent = keypad[key].value;
         calculatorButton.style.order = keypad[key].order;
         calculatorButton.addEventListener('click', keypad[key].action);
         calculatorKeypad.appendChild(calculatorButton);
     }
 };
+
+doRenderKeypad();
