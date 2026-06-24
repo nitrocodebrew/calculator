@@ -2,11 +2,17 @@
 const $ = queryToMatch => document.querySelector(queryToMatch);
 
 // UI references
-const calculatorInput = $('keypad-input');
-const calculatorResult = $('keypad-result');
-const calculatorKeypad = $('.calculator-keypad-container ul');
+const calculatorInput = $('.keypad-input');
+const calculatorResult = $('.keypad-result');
+const calculatorKeypad = $('.calculator-keypad-container');
 
-// Test to see the UI references are correct
-console.log(calculatorInput);
-console.log(calculatorResult);
-console.log(calculatorKeypad);
+// Core components
+const OPERATORS = ['+', '-', '*', '/', '%'];
+let equation = '';
+
+// Basic operations
+const doAddition = (a, b) => a + b;
+const doSubtraction = (a, b) => a - b;
+const doMultiplication = (a, b) => a * b;
+const doDivision = (a, b) => a / b;
+const doRemainder = (a, b) => a % b;
