@@ -59,6 +59,32 @@ const doAppendOperator = operator => {
     calculatorInput.textContent = equation;
 };
 
+const doToggleSign = () => {
+    const tokens = equation.trim().split(' ');
+    let lastIndex = tokens[tokens.length - 1];
+
+    if(!lastIndex)
+        return;
+
+    if(lastIndex === '-') {
+        tokens.pop();
+        equation = tokens.join(' ');
+        calculatorInput.textContent = equation;
+        return;
+    }
+
+    if(OPERATORS.includes(lastIndex))
+        return;
+
+    if(lastIndex.startsWith('-'))
+        tokens[lastIndex] = lastIndex.slice(1);
+    else
+        tokens[lastIndex] = '-' + lastIndex;
+
+    equation = tokens.join(' ');
+    calculatorInput.textContent = equation;
+};
+
 const doRenderKeypad = () => {
     const keypad = {
         backspace: {
@@ -171,7 +197,7 @@ const doRenderKeypad = () => {
         },
         sign: {
             value: '+/-',
-            action: () => {},
+            action: () => doToggleSign(),
             order: 19,
             type: 'number',
         },
