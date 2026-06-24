@@ -109,13 +109,18 @@ const doMath = () => {
     const tokens = expression.split(' ');
     let result = Number(tokens[0]);
 
-    for(let i = 1; i < expression.length; i += 2) {
+    for(let i = 1; i < tokens.length; i += 2) {
         const operator = tokens[i];
         const operand = Number(tokens[i + 1]);
 
         result = doOperation(operator, result, operand);
     }
     return result;
+};
+
+const doEquals = () => {
+    const equationResult = doMath();
+    calculatorResult.textContent = equationResult;
 };
 
 const doToggleSign = () => {
@@ -253,7 +258,7 @@ const doRenderKeypad = () => {
         },
         equals: {
             value: '=',
-            action: () => {},
+            action: () => doEquals(),
             order: 20,
             type: 'operator',
         },
