@@ -75,7 +75,32 @@ const doValidateEquation = () => {
     return tokens.join(' ');
 };
 
+const doOperation = (operator, a, b) => {
+    switch(operator) {
+        case '+':
+            return doAddition(a, b);
+        break;
+        case '-':
+            return doSubtraction(a, b);
+        break;
+        case '*':
+            return doMultiplication(a, b);
+        break;
+        case '/':
+            if(b === 0) {
+                return 'I know that you know better than that. :P';
+            }
 
+            return doDivision(a, b);
+        break;
+        case '%':
+            return doRemainder(a, b);
+        break;
+        default:
+            return 'Error';
+        break;
+    }
+};
 
 const doToggleSign = () => {
     const tokens = equation.trim().split(' ');
