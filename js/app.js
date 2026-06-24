@@ -16,3 +16,7 @@ const doSubtraction = (a, b) => a - b;
 const doMultiplication = (a, b) => a * b;
 const doDivision = (a, b) => a / b;
 const doRemainder = (a, b) => a % b;
+
+const doBackspace = () => {
+    equation = calculatorInput.textContent = calculatorInput.textContent.slice(0, -1);
+};
