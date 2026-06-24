@@ -46,7 +46,7 @@
 }
 
 .calculator-keypad-btn {
-    width: 125px;
+    flex: 1 0 25%;
     height: 125px;
     cursor: pointer;
 }
