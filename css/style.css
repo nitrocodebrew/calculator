@@ -89,9 +89,7 @@ input, select, button, textarea {
     font-size: 1.25rem;
 }
 
-.button-operator.calculator-keypad-btn {
-    background-color: orange;
-}
+
 .calculator-display-container > output {
     display: block;
     padding: 1rem;
@@ -115,6 +113,18 @@ input, select, button, textarea {
     box-shadow: 5px 5px 0 #000000;
     border-radius: 5px;
     font-size: 1.25rem;
+}
+
+.button-number.calculator-keypad-btn:hover {
+    background: #e5e5e5;
+}
+
+.button-operator.calculator-keypad-btn {
+    background-color: orange;
+}
+
+.button-operator.calculator-keypad-btn:hover {
+    background-color: darkorange;
 }
 
 /**
